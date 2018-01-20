@@ -1,0 +1,16 @@
+version: "2"
+services:
+  angular:
+    build: todoapp-angular
+    ports:
+      - "4200:4200"
+  express:
+    build: todoapp-express
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
