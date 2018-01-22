@@ -63,3 +63,6 @@ https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hu
 
 ## Link to my Docker Hub images
 https://hub.docker.com/r/ruchitgandhi/mean-docker/tags/
+
+#### References
+https://medium.com/netscape/mean-app-tutorial-with-angular-4-part-1-18691663ea96
