@@ -3,6 +3,8 @@ Dockerized Task Manager MEAN Application
 
 # Steps to run on Docker
 
+### Single Instance of Docker
+
 Start Docker instance
 
 run docker-compose up --build on cmd to build the docker images and run it once the build is successful.
@@ -11,6 +13,46 @@ The configuration file for docker-compose is docker-compose.yml.
 3 docker images will start running - Angular UI, Express NodeJS server, MongoDb Database
 
 Navigate to http://localhost:4200/ to test the application.
+
+### Docker Swarm Mode
+
+#### Running using my published docker images on Docker Hub
+Start Docker Swarm on local using - docker swarm init
+
+run docker-compose build on cmd to build the docker images.
+The configuration file for docker-compose is docker-compose.yml.
+
+run docker stack deploy --compose-file docker-compose.yml mean_docker to start the application.
+3 docker images will start running - Angular UI, Express NodeJS server, MongoDb Database
+
+Navigate to http://localhost:4200/ to test the application.
+
+#### Running using locally setting up a registry instead of central registry like Docker Hub
+
+Start Docker Swarm on local using - docker swarm init
+
+Change image paths in docker-compose.yml
+
+angular: 
+  image: 127.0.0.1:5000/todoapp_angular
+express:
+  image: 127.0.0.1:5000/todoapp_express
+
+Start local registry - docker service create --name registry --publish published=5000,target=5000 registry:2
+Check it using - docker service ls.
+
+Run docker-compose build to build your local images.
+Run docker-compose push to push the images to the registry
+
+run docker stack deploy --compose-file docker-compose.yml mean_docker to start the application.
+3 docker images will start running - Angular UI, Express NodeJS server, MongoDb Database
+
+Navigate to http://localhost:4200/ to test the application.
+
+------------------------------------------------------------------------------------------------------------------------
+Docker Hub Link - https://hub.docker.com/r/ruchitgandhi/mean-docker/
+
+Help Links - https://docs.docker.com/engine/swarm/stack-deploy/#deploy-the-stack-to-the-swarm
 
 # Steps to run on Local without Docker
 
