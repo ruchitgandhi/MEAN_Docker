@@ -1,0 +1,27 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/todoapp-angular/node_modules
+/todoapp-express/node_modules
+
+# misc
+/todoapp-angular/npm-debug.log
+
+# e2e
+/todoapp-angular/e2e/*.js
+/todoapp-angular/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+
+#Build
+/todoapp-express/public/css/main.css
+
+# API keys and secrets
+/todoapp-express/.env
