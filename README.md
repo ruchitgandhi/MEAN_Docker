@@ -16,11 +16,11 @@ Navigate to http://localhost:4200/ to test the application.
 
 ### Docker Swarm Mode
 
-#### Running using my published docker images on Docker Hub
 Start Docker Swarm on local using - docker swarm init
 
-run docker-compose build on cmd to build the docker images.
-The configuration file for docker-compose is docker-compose.yml.
+#### Running using my published docker images on Docker Hub
+
+Remove the "build" and "links" commands from the docker-compose.yml. They are not needed since data is being picked from images and not from local.
 
 run docker stack deploy --compose-file docker-compose.yml mean_docker to start the application.
 3 docker images will start running - Angular UI, Express NodeJS server, MongoDb Database
@@ -28,8 +28,6 @@ run docker stack deploy --compose-file docker-compose.yml mean_docker to start t
 Navigate to http://localhost:4200/ to test the application.
 
 #### Running using locally setting up a registry instead of central registry like Docker Hub
-
-Start Docker Swarm on local using - docker swarm init
 
 Change image paths in docker-compose.yml
 
