@@ -4,8 +4,20 @@ export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
-
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    
+    getTitleElement() {
+    return element(by.id('title'));
   }
+    
+    getDescElement() {
+    return element(by.id('description'));
+  }
+    
+    getAddButton() {
+    return element(by.buttonText('Add'));
+  }
+    
+    getFirstTodo(){
+        return element.all(by.css('.todo')).first();
+    }
 }

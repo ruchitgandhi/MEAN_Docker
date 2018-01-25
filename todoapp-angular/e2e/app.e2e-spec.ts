@@ -6,9 +6,19 @@ describe('todoapp-angular App', () => {
   beforeEach(() => {
     page = new AppPage();
   });
+    
+    it('should add new todo', () => {
+        page.navigateTo();
+        var titleElement = page.getTitleElement();
+        var descElement = page.getDescElement();
+        var addButton = page.getAddButton();
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
-  });
+        titleElement.sendKeys('Test Title');
+        descElement.sendKeys('Test Description');
+        addButton.click();
+        page.navigateTo();
+        const row = page.getFirstTodo().getText();
+          expect(row).toContain("Test Title");
+          expect(row).toContain("Test Description");
+      });
 });

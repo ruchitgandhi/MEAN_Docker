@@ -2,16 +2,16 @@ version: "3"
 services:
   angular:
     image: ruchitgandhi/mean-docker:todoapp_angular
-    build: todoapp-angular
+#    build: todoapp-angular
     ports:
       - "4200:4200"
   express:
     image: ruchitgandhi/mean-docker:todoapp_express
-    build: todoapp-express
+#    build: todoapp-express
     ports:
       - "3000:3000"
-    links:
-      - mongo
+#    links:
+#      - mongo
   mongo:
     image: mongo
     ports:
