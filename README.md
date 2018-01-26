@@ -33,16 +33,20 @@ Change image paths in docker-compose.yml
 
 angular: 
   image: 127.0.0.1:5000/todoapp_angular
+  
 express:
   image: 127.0.0.1:5000/todoapp_express
 
 Start local registry - docker service create --name registry --publish published=5000,target=5000 registry:2
+
 Check it using - docker service ls.
 
 Run docker-compose build to build your local images.
+
 Run docker-compose push to push the images to the registry
 
 run docker stack deploy --compose-file docker-compose.yml mean_docker to start the application.
+
 3 docker images will start running - Angular UI, Express NodeJS server, MongoDb Database
 
 Navigate to http://localhost:4200/ to test the application.
